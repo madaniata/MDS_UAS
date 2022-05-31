@@ -22,3 +22,4 @@ cuacajabar_collection = mongo(collection="cuacaBogor",
 cuacajabar_collection$insert(databogor)
 }
 
+
