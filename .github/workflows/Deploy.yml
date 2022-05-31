@@ -11,7 +11,7 @@ name: Deploy
 
 on:
   schedule:
-  - cron: "10 10,13 * * *"
+  - cron: "22 03 * * *"
 
 jobs:
   build:
