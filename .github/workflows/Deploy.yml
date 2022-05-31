@@ -35,4 +35,4 @@ jobs:
       - name: Install mongolite package
         run: Rscript -e 'install.packages("mongolite", dependencies = TRUE)'
       - name: Create and post tweet
-        run: Rscript publish.R
+        run: Rscript Deploy.R
