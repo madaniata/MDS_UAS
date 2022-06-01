@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        r-version: ['4.1.1']
+        r-version: ['4.1.1', '4.1.2']
 
     steps:
       - uses: actions/checkout@v3
@@ -35,7 +35,7 @@ jobs:
           install.packages(c("dplyr", "rtweet", "rvest", "mongolite", "remotes", "base"))
           remotes::install_deps(dependencies = FALSE)
         shell: Rscript {0}
-      - name: Check
-        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+      - name: Create and post tweet
+        run: Rscript Deploy.R
         shell: Rscript {0}
         
