@@ -32,7 +32,7 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("dplyr", "rtweet", "rvest", "mongolite"))
+          install.packages(c("dplyr", "rtweet", "rvest", "mongolite", "remotes"))
           remotes::install_deps(dependencies = FALSE)
         shell: Rscript {0}
       - name: Check
