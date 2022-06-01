@@ -6,7 +6,6 @@ databogor <- html_table(tabeljabar)
 databogor <- as.data.frame(datajabar)
 databogor <- datajabar[-2,]
 databogor <- datajabar[-2,]
-colnames(databogor) <- c("Kota", "Siang", "Malam",	"Dini Hari", "Suhu(°C)", "Kelembapan(%)", "Kota", "Pagi", "Siang",	"Malam",	"Dini Hari", "Suhu(°C)", "Kelembapan(%)")
 
 library(dplyr)
 dataSiap <- databogor[16, ]
