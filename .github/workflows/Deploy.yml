@@ -32,8 +32,7 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "dplyr", "rtweet", "rvest", "mongolite"))
-          remotes::install_deps(dependencies = FALSE)
+          install.packages(c("dplyr", "rtweet", "rvest", "mongolite"))
         shell: Rscript {0}
       - name: Create and post tweet
         run: Rscript Deploy.R
