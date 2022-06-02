@@ -16,7 +16,7 @@ cuacabogor_token <- rtweet::create_token(
 ## batas ==================================================================
 
 Scraping_Data <- function(con, twitter_token) {
-  urlbogor <- "https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat"
+  urlbogor <- paste0("https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat")
   tabelbogor <- read_html(urljabar)
   databogor <- html_table(tabeljabar)
   databogor <- datajabar[-2,]
