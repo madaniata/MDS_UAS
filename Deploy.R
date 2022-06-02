@@ -2,6 +2,8 @@ library(dplyr)
 library(rtweet)
 library(rvest)
 library(mongolite)
+library(xml)
+library(xml2)
 
 # Create Twitter token API --------------------------------
 
