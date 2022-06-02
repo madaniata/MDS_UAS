@@ -35,6 +35,4 @@ jobs:
           install.packages(c("dplyr", "rtweet", "rvest", "mongolite"))
         shell: Rscript {0}
       - name: Create and post tweet
-        run: Rscript Deploy.R
-        shell: Rscript {0}
-        
+        run: Rscript Deploy.R       
