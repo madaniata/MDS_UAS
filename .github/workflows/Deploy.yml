@@ -10,7 +10,7 @@ name: Deploy
 
 on:
   schedule:
-  - cron: "30 11, * * *"
+  - cron: "30 11"
 
 permissions:
   contents: read
