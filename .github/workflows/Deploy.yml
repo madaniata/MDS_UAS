@@ -10,7 +10,8 @@ name: Deploy
 
 on:
   schedule:
-  - cron: "30 11, * * *"
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 11, * * *'
 
 permissions:
   contents: read
