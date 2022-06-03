@@ -9,10 +9,8 @@
 name: Deploy
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  schedule:
+  - cron: "30 11, * * *"
 
 permissions:
   contents: read
