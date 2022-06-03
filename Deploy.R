@@ -16,7 +16,7 @@ cuacabogor_token <- rtweet::create_token(
 ## batas ==================================================================
 
 tabelbogor <- read_html("https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat")
-databogor <- html_table(tabeljabar)
+databogor <- html_table(tabelbogor)
 databogor <- datajabar[-2,]
 databogor <- datajabar[-2,]
 
