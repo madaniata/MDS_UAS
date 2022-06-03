@@ -14,40 +14,41 @@ cuacabogor_token <- rtweet::create_token(
 )
 
 ## batas ==================================================================
-
-tabelbogor <- read_html("https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat")
+url <- "https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat"
+tabelbogor <- read_html(url)
 databogor <- html_table(tabelbogor)
-databogor <- datajabar[-2,]
-databogor <- datajabar[-2,]
+databogor <- as.data.frame(databogor)
+databogor <- databogor[-2,]
+databogor <- databogor[-2,]
 
 dataSiap <- databogor[16, ]
 # Menyambungkan MongoDB Database ke R ------------------------
 
 # This is the connection_string. You can get the exact url from your MongoDB cluster screen
 connection_string = 'mongodb+srv://madaniata:tamadania17@MDS.kqfqm.mongodb.net/sample_training'
-cuacajabar_collection = mongo(collection="cuacaBogor",
+cuacabogor_collection = mongo(collection="cuacaBogor",
                               db="UAS_MDS",
                               url=connection_string)
-cuacajabar_collection$insert(databogor)
+cuacabogor_collection$insert(databogor)
+
 
 # Hashtag
 hashtag <- "CuacaBogor"
 
 # Build the status message
-status_details <- paste0("Prediksi cuaca Bogor esok hari",
+status_details <- paste0("Prediksi cuaca Bogor esok harii",
                          "\n",
-                         "Pagi: ", dataSiap[8],
+                         "Pagi: ", dataSiap[6],
                          "\n",
-                         "Siang: ", dataSiap[9],
+                         "Siang: ", dataSiap[7],
                          "\n",
-                         "Malam: ", dataSiap[10],
+                         "Malam: ", dataSiap[8],
                          "\n",
-                         "Dini hari: ", dataSiap[11],
+                         "Dini hari: ", dataSiap[9],
                          " #",hashtag)
 
 ## Post the image to Twitter
 rtweet::post_tweet(
   status = status_details,
-  token = cuacajabar_token
-  )
-}
+  token = cuacabogor_token
+)
