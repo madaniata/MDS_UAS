@@ -15,45 +15,39 @@ cuacabogor_token <- rtweet::create_token(
 
 ## batas ==================================================================
 
-Scraping_Data <- function(con, twitter_token) {
-  tabelbogor <- read_html("https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat")
-  databogor <- html_table(tabeljabar)
-  databogor <- datajabar[-2,]
-  databogor <- datajabar[-2,]
-  
-    dataSiap <- databogor[16, ]
-  # Menyambungkan MongoDB Database ke R ------------------------
-  
-  # This is the connection_string. You can get the exact url from your MongoDB cluster screen
-  connection_string = 'mongodb+srv://madaniata:tamadania17@MDS.kqfqm.mongodb.net/sample_training'
-  cuacajabar_collection = mongo(collection="cuacaBogor",
-                                db="UAS_MDS",
-                                url=connection_string)
-  cuacajabar_collection$insert(databogor)
-}
+tabelbogor <- read_html("https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat")
+databogor <- html_table(tabeljabar)
+databogor <- datajabar[-2,]
+databogor <- datajabar[-2,]
 
-Tweet_Posting <- function(con, twitter_token) {
-  # Hashtag
-  hashtag <- "CuacaBogor"
-  
-  # Build the status message
-  status_details <- paste0("Prediksi cuaca Bogor esok hari",
-                           "\n",
-                           "Pagi: ", dataSiap[8],
-                           "\n",
-                           "Siang: ", dataSiap[9],
-                           "\n",
-                           "Malam: ", dataSiap[10],
-                           "\n",
-                           "Dini hari: ", dataSiap[11],
-                           " #",hashtag)
-  
-  ## Post the image to Twitter
-  rtweet::post_tweet(
-    status = status_details,
-    token = cuacajabar_token
+dataSiap <- databogor[16, ]
+# Menyambungkan MongoDB Database ke R ------------------------
+
+# This is the connection_string. You can get the exact url from your MongoDB cluster screen
+connection_string = 'mongodb+srv://madaniata:tamadania17@MDS.kqfqm.mongodb.net/sample_training'
+cuacajabar_collection = mongo(collection="cuacaBogor",
+                              db="UAS_MDS",
+                              url=connection_string)
+cuacajabar_collection$insert(databogor)
+
+# Hashtag
+hashtag <- "CuacaBogor"
+
+# Build the status message
+status_details <- paste0("Prediksi cuaca Bogor esok hari",
+                         "\n",
+                         "Pagi: ", dataSiap[8],
+                         "\n",
+                         "Siang: ", dataSiap[9],
+                         "\n",
+                         "Malam: ", dataSiap[10],
+                         "\n",
+                         "Dini hari: ", dataSiap[11],
+                         " #",hashtag)
+
+## Post the image to Twitter
+rtweet::post_tweet(
+  status = status_details,
+  token = cuacajabar_token
   )
 }
-
-Scraping_Data(con, twitter_token)
-Tweet_Posting(con, twitter_token)
