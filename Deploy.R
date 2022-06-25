@@ -38,13 +38,13 @@ hashtag <- "CuacaBogor"
 # Build the status message
 status_details <- paste0("Prediksi cuaca Bogor esok hari",
                          "\n",
+                         "Dini hari: ", dataSiap[2],
+                         "\n",
                          "Pagi: ", dataSiap[6],
                          "\n",
                          "Siang: ", dataSiap[7],
                          "\n",
                          "Malam: ", dataSiap[8],
-                         "\n",
-                         "Dini hari: ", dataSiap[9],
                          " #",hashtag)
 
 ## Post the image to Twitter
