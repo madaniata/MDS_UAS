@@ -21,7 +21,7 @@ databogor <- as.data.frame(databogor)
 databogor <- databogor[-2,]
 databogor <- databogor[-2,]
 
-dataSiap <- databogor[16, ]
+dataSiap <- databogor[17, ]
 # Menyambungkan MongoDB Database ke R ------------------------
 
 # This is the connection_string. You can get the exact url from your MongoDB cluster screen
