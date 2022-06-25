@@ -6,7 +6,7 @@ library(mongolite)
 # Create Twitter token API --------------------------------
 
 cuacabogor_token <- rtweet::create_token(
-  app = "cuaca_bogor",
+  app = "madaniata17",
   consumer_key = Sys.getenv("TWITTER_CONSUMER_API_KEY"),
   consumer_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
   access_token = Sys.getenv("TWITTER_ACCESS_TOKEN"),
