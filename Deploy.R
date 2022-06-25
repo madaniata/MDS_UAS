@@ -25,7 +25,7 @@ dataSiap <- databogor[16, ]
 # Menyambungkan MongoDB Database ke R ------------------------
 
 # This is the connection_string. You can get the exact url from your MongoDB cluster screen
-connection_string = 'mongodb+srv://madaniata:<password>@mds.kqfqm.mongodb.net/?retryWrites=true&w=majority'
+connection_string = 'mongodb+srv://madaniata:tamadania17@mds.kqfqm.mongodb.net/?retryWrites=true&w=majority'
 cuacabogor_collection = mongo(collection="cuacaBogor",
                               db="UAS_MDS",
                               url=connection_string)
