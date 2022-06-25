@@ -20,8 +20,9 @@ databogor <- html_table(tabelbogor)
 databogor <- as.data.frame(databogor)
 databogor <- databogor[-2,]
 databogor <- databogor[-2,]
+rownames(databogor) <- databogor$X1
 
-dataSiap <- databogor[17, ]
+dataSiap <- databogor["Kota Bogor", ]
 # Menyambungkan MongoDB Database ke R ------------------------
 
 # This is the connection_string. You can get the exact url from your MongoDB cluster screen
