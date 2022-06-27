@@ -37,7 +37,8 @@ cuacabogor_collection$insert(databogor)
 hashtag <- "CuacaBogor"
 
 # Build the status message
-status_details <- paste0("Prediksi cuaca Bogor esok hari",
+status_details <- paste0("Prediksi cuaca Bogor tanggal ",
+                         format(Sys.Date()+1, format="%d %B %Y"),
                          "\n",
                          "Dini hari: ", dataSiap[2],
                          "\n",
