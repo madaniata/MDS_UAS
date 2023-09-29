@@ -1,7 +1,6 @@
 library(dplyr)
 library(rtweet)
 library(rvest)
-library(mongolite)
 
 # Create Twitter token API --------------------------------
 
@@ -13,7 +12,7 @@ cuacabogor_token <- rtweet::create_token(
   access_secret = Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
-## batas ==================================================================
+## ==================================================================
 url <- "https://www.bmkg.go.id/cuaca/prakiraan-cuaca-indonesia.bmkg?Prov=10&NamaProv=Jawa%20Barat"
 tabelbogor <- read_html(url)
 databogor <- html_table(tabelbogor)
@@ -23,15 +22,6 @@ databogor <- databogor[-2,]
 rownames(databogor) <- databogor$X1
 
 dataSiap <- databogor["Kota Bogor", ]
-# Menyambungkan MongoDB Database ke R ------------------------
-
-# This is the connection_string. You can get the exact url from your MongoDB cluster screen
-connection_string = 'mongodb+srv://madaniata:tamadania17@MDS.kqfqm.mongodb.net/sample_training'
-cuacabogor_collection = mongo(collection="cuacaBogor",
-                              db="UAS_MDS",
-                              url=connection_string)
-cuacabogor_collection$insert(databogor)
-
 
 # Hashtag
 hashtag <- "CuacaBogor"
